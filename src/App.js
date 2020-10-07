@@ -1,26 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import LoadData from "./data/loadData";
+import { APIKey } from "./apis/weatherio";
+import axios from "axios";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = ({ api }) => {
+  const API = `${api}&key=${APIKey}`;
+  const [apiLoaded, setApiLoaded] = useState(false);
+  const [error, setError] = useState(null);
+  const [data, setData] = useState([]);
+  const [weather, setWeather] = useState({});
+
+  useEffect(() => {
+    axios
+      .get(API)
+      .then((result) => {
+        setApiLoaded(true);
+        setData(result.data.data || []);
+        setWeather(result.data.data[0].weather || {});
+      })
+      .catch((reject) => {
+        setApiLoaded(true);
+        setError(reject);
+        setData([]);
+        setWeather({});
+      });
+  }, [API]);
+
+  const renderContent = () => {
+    return (
+      <LoadData
+        data={data}
+        weather={weather}
+        isLoading={apiLoaded}
+        error={error}
+      />
+    );
+  };
+  return <div className='App'>{renderContent()}</div>;
+};
 
 export default App;
