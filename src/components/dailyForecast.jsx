@@ -3,9 +3,16 @@ import React from "react";
 const DailyForecast = ({ dailyForecast }) => {
   return (
     <div className='forecast'>
+      <small>
+        <span className='date'>Date:</span>
+        {dailyForecast.datetime}
+      </small>
       <div>
-        {Math.round(dailyForecast.temp)}
-        <sup>°C</sup>
+        <div className='temperature'>
+          {Math.round(dailyForecast.temp)}
+          <sup>°C</sup>
+        </div>
+
         <figure>
           <img
             alt={dailyForecast.weather.description}
@@ -16,7 +23,6 @@ const DailyForecast = ({ dailyForecast }) => {
       </div>
       <p>H:{dailyForecast.high_temp}</p>
       <p>H:{dailyForecast.low_temp}</p>
-      Date: {dailyForecast.datetime} {dailyForecast.weather.description}
     </div>
   );
 };

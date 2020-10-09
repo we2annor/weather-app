@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { KEY } from "../apis/weatherio";
 import axios from "axios";
-import DailyForecastList from "../components/dailyForcastList";
+import DailyWeatherInfoList from "./DailyForecastList";
 
-const Page = ({ api, city_name }) => {
+const City = ({ api, city_name, filter }) => {
   const [currentData, setCurrentData] = useState([]);
   const [error, setError] = useState(null);
   const [loaded, setLoaded] = useState(false);
@@ -32,7 +32,10 @@ const Page = ({ api, city_name }) => {
           <div className='ajax-section'>
             <div className='container'>
               <ul className='days'>
-                <DailyForecastList dailyForecasts={currentData} />;
+                <DailyWeatherInfoList
+                  dailyForecasts={currentData}
+                  filter={filter}
+                />
               </ul>
             </div>
           </div>
@@ -46,4 +49,4 @@ const Page = ({ api, city_name }) => {
   return <>{renderContent()}</>;
 };
 
-export default Page;
+export default City;

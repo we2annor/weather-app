@@ -16,11 +16,26 @@
   color: white;
 }
 
+.forecast small {
+  padding-bottom: 20px;
+  display: inline-block;
+}
+
+.forecast .date {
+  margin-right: 4px;
+}
+
+ul {
+  padding-inline-start: 0;
+}
+
+.temperature {
+  font-weight: 2em;
+}
 .navigation nav {
   display: inline-block;
   position: absolute;
   top: 0;
-
 }
 
 .search_form {
@@ -30,7 +45,7 @@
 }
 
 .search_form div {
-  display: inline-block
+  display: inline-block;
 }
 
 .search_form label {
@@ -44,7 +59,7 @@
   padding: 4px;
 }
 
-.navigation nav ul>li {
+.navigation nav ul > li {
   display: inline-block;
   padding: 10px;
   margin: 2px;
@@ -84,23 +99,19 @@ p {
   margin: 0;
 }
 
-
-
-
 .container {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 15px;
 }
 
 .ajax-section {
-  margin: 50px 0 20px;
+  margin: 40px 0 15px;
 }
 
 .ajax-section .days {
   display: grid;
-  grid-gap: 32px 20px;
+  grid-gap: 20px 15px;
   grid-template-columns: repeat(4, 1fr);
 }
 
@@ -126,8 +137,8 @@ p {
   border: 1px solid rgb(213, 214, 213);
   list-style: none;
   position: relative;
-  padding: 40px 10%;
-  border-radius: 20px;
+  padding: 20px 10%;
+  border-radius: 14px;
   background: var(--text_light);
   color: var(--text_med);
 }
@@ -175,8 +186,6 @@ p {
   height: 100px;
 }
 
-
-
 @media screen and (max-width: 1000px) {
   body {
     padding: 30px;
@@ -188,7 +197,6 @@ p {
 }
 
 @media screen and (max-width: 700px) {
-
   .heading,
   .section .day-temp {
     font-size: 3rem;

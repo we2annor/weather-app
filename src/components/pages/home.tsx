@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { KEY } from "../apis/weatherio";
-import CurrentForecast from "../components/currentForecast";
+import { KEY } from "../../apis/weatherio";
+import CurrentForecast from "../CurrentForecast";
 import axios from "axios";
 
 const Home = () => {
@@ -27,25 +27,16 @@ const Home = () => {
       });
   }, [API]);
 
-  const renderContent = () => {
-    if (loaded) {
-      return (
-        <CurrentForecast
-          forecast={currentData}
-          weatherDetails={weatherDetails}
-        />
-      );
-    }
-    if (error) {
-      return `Sorry an error occured ${error}`;
-    }
-  };
+  if (!loaded) {
+    return <div className='loading'>Loading...</div>;
+  }
+
+  if (error) {
+    return <div className='error-message'>Sorry an error occured.</div>;
+  }
 
   return (
-    <>
-      <p>Current Forecast</p>
-      {renderContent()}
-    </>
+    <CurrentForecast forecast={currentData} weatherDetails={weatherDetails} />
   );
 };
 
