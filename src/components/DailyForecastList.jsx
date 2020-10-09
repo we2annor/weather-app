@@ -18,7 +18,7 @@ const DailyForecastList = ({ dailyForecasts, filter }) => {
   });
   const renderedList = filteredDailyForecasts.map((dailyForecast, index) => {
     return (
-      <li key={index} className='day'>
+      <li key={index} className='city'>
         <DailyForecast dailyForecast={dailyForecast} />
       </li>
     );

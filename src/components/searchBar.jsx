@@ -29,7 +29,6 @@ const SearchBar = ({ onFilterSubmit }) => {
           />
         </div>
         <div className='field'>
-          <label></label>
           <input
             placeholder='Max Temperature'
             type='text'

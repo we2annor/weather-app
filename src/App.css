@@ -29,9 +29,15 @@ ul {
   padding-inline-start: 0;
 }
 
+.loading .error-message {
+  font-size: small;
+  text-align: center;
+}
+
 .temperature {
   font-weight: 2em;
 }
+
 .navigation nav {
   display: inline-block;
   position: absolute;
@@ -59,7 +65,7 @@ ul {
   padding: 4px;
 }
 
-.navigation nav ul > li {
+.navigation nav ul>li {
   display: inline-block;
   padding: 10px;
   margin: 2px;
@@ -105,35 +111,35 @@ p {
   margin: 0 auto;
 }
 
-.ajax-section {
+.div-section {
   margin: 40px 0 15px;
 }
 
-.ajax-section .days {
+.div-section .cities {
   display: grid;
   grid-gap: 20px 15px;
   grid-template-columns: repeat(4, 1fr);
 }
 
 @media screen and (max-width: 1000px) {
-  .ajax-section .days {
+  .div-section .cities {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media screen and (max-width: 700px) {
-  .ajax-section .days {
+  .div-section .cities {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media screen and (max-width: 500px) {
-  .ajax-section .days {
+  .div-section .cities {
     grid-template-columns: repeat(1, 1fr);
   }
 }
 
-.ajax-section .day {
+.div-section .city {
   border: 1px solid rgb(213, 214, 213);
   list-style: none;
   position: relative;
@@ -143,7 +149,7 @@ p {
   color: var(--text_med);
 }
 
-.ajax-section .day::after {
+.div-section .city::after {
   content: ’’;
   width: 90%;
   height: 50px;
@@ -156,31 +162,31 @@ p {
   background: var(--text_light);
 }
 
-.ajax-section figcaption {
+.div-section figcaption {
   margin-top: 10px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
-.ajax-section .day-temp {
+.div-section .city-temp {
   font-size: 5rem;
   font-weight: bold;
   margin-top: 10px;
   color: var(--text_dark);
 }
 
-.ajax-section .day sup {
+.div-section .city sup {
   font-size: 0.5em;
 }
 
-.ajax-section .day-name sup {
+.div-section .city-name sup {
   padding: 0.2em 0.6em;
   border-radius: 30px;
   color: var(--text_light);
   background: var(--orange);
 }
 
-.ajax-section .day-icon {
+.div-section .city-icon {
   margin-top: 10px;
   width: 100px;
   height: 100px;
@@ -191,14 +197,15 @@ p {
     padding: 30px;
   }
 
-  .section .days {
+  .section .cities {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media screen and (max-width: 700px) {
+
   .heading,
-  .section .day-temp {
+  .section .city-temp {
     font-size: 3rem;
   }
 

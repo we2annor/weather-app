@@ -3,9 +3,9 @@ import React from "react";
 const CurrentForecast = ({ forecast, weatherDetails }) => {
   return (
     <div className='ui segment'>
-      <div className='ajax-section'>
+      <div className='div-section'>
         <h3>Current Forecast</h3>
-        <div className='day'>
+        <div className='city'>
           <div className='city-name'>{forecast.city_name}</div>
           <figure>
             <img

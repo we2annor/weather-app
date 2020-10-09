@@ -29,9 +29,9 @@ const City = ({ api, city_name, filter }) => {
       return (
         <div className='ui raised segment city-container'>
           <h3 className='ui header'>{city_name}</h3>
-          <div className='ajax-section'>
+          <div className='div-section'>
             <div className='container'>
-              <ul className='days'>
+              <ul className='cities'>
                 <DailyWeatherInfoList
                   dailyForecasts={currentData}
                   filter={filter}
@@ -43,7 +43,7 @@ const City = ({ api, city_name, filter }) => {
       );
     }
     if (error) {
-      return `sorry error occured ${error}`;
+      return <div className='error-message'>Sorry an error occured</div>;
     }
   };
   return <>{renderContent()}</>;
