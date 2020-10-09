@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { KEY } from "../apis/weatherio";
 import axios from "axios";
-import DailyWeatherInfoList from "./DailyForecastList";
+import DailyForecastList from "./DailyForecastList";
 
 const City = ({ api, city_name, filter }) => {
   const [currentData, setCurrentData] = useState([]);
@@ -32,7 +32,7 @@ const City = ({ api, city_name, filter }) => {
           <div className='div-section'>
             <div className='container'>
               <ul className='cities'>
-                <DailyWeatherInfoList
+                <DailyForecastList
                   dailyForecasts={currentData}
                   filter={filter}
                 />

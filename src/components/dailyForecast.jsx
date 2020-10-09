@@ -8,11 +8,10 @@ const DailyForecast = ({ dailyForecast }) => {
         {dailyForecast.datetime}
       </small>
       <div>
-        <div className='temperature'>
+        <div className='city-temp'>
           {Math.round(dailyForecast.temp)}
           <sup>°C</sup>
         </div>
-
         <figure>
           <img
             alt={dailyForecast.weather.description}

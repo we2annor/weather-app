@@ -7,6 +7,10 @@ const CurrentForecast = ({ forecast, weatherDetails }) => {
         <h3>Current Forecast</h3>
         <div className='city'>
           <div className='city-name'>{forecast.city_name}</div>
+          <div className='city-temp'>
+            {Math.round(forecast.temp)}
+            <sup>°C</sup>
+          </div>
           <figure>
             <img
               alt={weatherDetails.description}
@@ -14,13 +18,6 @@ const CurrentForecast = ({ forecast, weatherDetails }) => {
             />
             <figcaption>{weatherDetails.description}</figcaption>
           </figure>
-          <div></div>
-          <div>
-            <div>
-              {Math.round(forecast.temp)}
-              <sup>°C</sup>
-            </div>
-          </div>
           <div>
             <p>Sun rise:{forecast.sunrise}</p>
             <p>Sun set:{forecast.sunset}</p>
