@@ -7,7 +7,7 @@ const Home = () => {
   const [weatherDetails, setWeatherDetails] = useState([]);
   const [currentData, setCurrentData] = useState([]);
   const [error, setError] = useState(null);
-  const [loaded, setLoaded] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const API = `https://api.weatherbit.io/v2.0/current?city=London&country=UK&key=${KEY}`;
 
@@ -15,19 +15,19 @@ const Home = () => {
     axios
       .get(API)
       .then((result) => {
-        setLoaded(true);
+        setLoading(true);
         setCurrentData(result.data.data[0] || []);
         setWeatherDetails(result.data.data[0].weather || []);
       })
       .catch((reject) => {
-        setLoaded(true);
+        setLoading(true);
         setError(reject);
         setCurrentData([]);
         setWeatherDetails([]);
       });
   }, [API]);
 
-  if (!loaded) {
+  if (!loading) {
     return <div className='loading'>Loading...</div>;
   }
 
